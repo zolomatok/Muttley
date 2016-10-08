@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		F34B0A2B1DA8E4920003E8B1 /* Muttley.h in Headers */ = {isa = PBXBuildFile; fileRef = F34B0A291DA8E4920003E8B1 /* Muttley.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F34B0A321DA8E8A30003E8B1 /* Muttley.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B0A311DA8E8A30003E8B1 /* Muttley.swift */; };
+		F34B0A341DA8EFC10003E8B1 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B0A331DA8EFC10003E8B1 /* Request.swift */; };
+		F34B0A361DA8FAC80003E8B1 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B0A351DA8FAC80003E8B1 /* Parser.swift */; };
+		F34B0A381DA911540003E8B1 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B0A371DA911540003E8B1 /* Memory.swift */; };
+		F34B0A3A1DA916310003E8B1 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B0A391DA916310003E8B1 /* Loader.swift */; };
+		F34B0A3C1DA926B90003E8B1 /* MuttleyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B0A3B1DA926B90003E8B1 /* MuttleyError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +21,11 @@
 		F34B0A291DA8E4920003E8B1 /* Muttley.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Muttley.h; sourceTree = "<group>"; };
 		F34B0A2A1DA8E4920003E8B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F34B0A311DA8E8A30003E8B1 /* Muttley.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Muttley.swift; sourceTree = "<group>"; };
+		F34B0A331DA8EFC10003E8B1 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		F34B0A351DA8FAC80003E8B1 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		F34B0A371DA911540003E8B1 /* Memory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
+		F34B0A391DA916310003E8B1 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		F34B0A3B1DA926B90003E8B1 /* MuttleyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuttleyError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +60,11 @@
 			children = (
 				F34B0A291DA8E4920003E8B1 /* Muttley.h */,
 				F34B0A311DA8E8A30003E8B1 /* Muttley.swift */,
+				F34B0A391DA916310003E8B1 /* Loader.swift */,
+				F34B0A331DA8EFC10003E8B1 /* Request.swift */,
+				F34B0A351DA8FAC80003E8B1 /* Parser.swift */,
+				F34B0A371DA911540003E8B1 /* Memory.swift */,
+				F34B0A3B1DA926B90003E8B1 /* MuttleyError.swift */,
 				F34B0A2A1DA8E4920003E8B1 /* Info.plist */,
 			);
 			path = Muttley;
@@ -136,7 +151,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F34B0A381DA911540003E8B1 /* Memory.swift in Sources */,
 				F34B0A321DA8E8A30003E8B1 /* Muttley.swift in Sources */,
+				F34B0A341DA8EFC10003E8B1 /* Request.swift in Sources */,
+				F34B0A361DA8FAC80003E8B1 /* Parser.swift in Sources */,
+				F34B0A3A1DA916310003E8B1 /* Loader.swift in Sources */,
+				F34B0A3C1DA926B90003E8B1 /* MuttleyError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
