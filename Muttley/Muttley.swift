@@ -12,12 +12,15 @@ import Foundation
 open class Muttley {
     
     
+    /// Maximum size of the memory in bytes. Note, this is imprecise as it uses NSCache.
     open static var maxCapacity: Int {
         get { return Dispatcher.memory.totalCostLimit }
         set { Dispatcher.memory.totalCostLimit = newValue }
     }
     
     
+
+    /// Download the data from the request's url
     open static func fetch<T>(request: Request<T>) {
         
         Dispatcher.fetch(url: request.url, configuration: request.configuration, progressHandler: request.progressHandler ?? {_ in}) { (data, error) in
@@ -45,7 +48,8 @@ open class Muttley {
     }
     
 
-    open static func clean() {
+    /// Cleans the cache in its entirity
+    open static func cleanCache() {
         Dispatcher.clean()
     }
 }

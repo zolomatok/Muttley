@@ -33,6 +33,6 @@ open class JSONParser: Parser {
     open func parse(data: Data?) -> Any? {
         guard let data = data else { return nil }
         let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
-        return json as? [NSObject: AnyObject] ?? json as? [[NSObject: AnyObject]]
+        return json as? [String: AnyObject] ?? json as? [[String: AnyObject]]
     }
 }

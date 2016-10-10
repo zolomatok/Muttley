@@ -18,6 +18,7 @@ class Dispatcher {
         return m
     }()
     
+    
     static func fetch(url: String, configuration: URLSessionConfiguration? = nil, progressHandler: @escaping (Double)->Void = {_ in}, completion: @escaping (Data?, MuttleyError?)->Void) {
         
         // 1| Check the cache for the data

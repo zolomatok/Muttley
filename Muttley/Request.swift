@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Defines the url for a resource, along with an optional parsing method, configuration, progress and completion handlers
 open class Request<T> {
     
     public typealias Completion = (T?, MuttleyError?)->Void

@@ -12,15 +12,12 @@ class Memory: NSCache<NSString, NSData> {
     
     // The first item is the least recently used
     var accessFrequency = [(url: String, size: Int)]()
-    
-    override var totalCostLimit: Int {
-        didSet { controlSize() }
-    }
+    override var totalCostLimit: Int { didSet { controlSize() } }
     
     
     override init() {
         super.init()
-        NotificationCenter.default.addObserver(self, selector: #selector(removeAllObjects), name: NSNotification.Name.UIApplicationDidReceiveMemoryWarning, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(Memory.clean), name: NSNotification.Name.UIApplicationDidReceiveMemoryWarning, object: nil)
      }
     
     
@@ -55,7 +52,11 @@ class Memory: NSCache<NSString, NSData> {
     
     
     func controlSize(sizeToAdd: Int = 0) {
+        
+        // Current occupied size
         let currentSize: Int = accessFrequency.reduce(0, { (current, map) -> Int in current + map.1 })
+        
+        // Removing elements until there is enough room for the new one
         if currentSize + sizeToAdd > totalCostLimit {
             
             var subtract = 0
@@ -69,5 +70,12 @@ class Memory: NSCache<NSString, NSData> {
             }
             indices.reversed().forEach{ accessFrequency.remove(at: $0) }
         }
+    }
+    
+    
+    
+    func clean() {
+        accessFrequency.removeAll()
+        removeAllObjects()
     }
 }
