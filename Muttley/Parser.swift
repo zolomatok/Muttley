@@ -12,23 +12,27 @@ public protocol Parser {
     func parse(data: Data?) -> Any?
 }
 
-public class ImageParser: Parser {
-    public func parse(data: Data?) -> Any? {
+open class ImageParser: Parser {
+    public init() {} // Without this, the parser cannot be initialized outside the lib
+    open func parse(data: Data?) -> Any? {
         guard let data = data else { return nil }
         return UIImage(data: data)
     }
 }
 
-public class HTMLParser: Parser {
-    public func parse(data: Data?) -> Any? {
+open class HTMLParser: Parser {
+    public init() {} // Without this, the parser cannot be initialized outside the lib
+    open func parse(data: Data?) -> Any? {
         guard let data = data else { return nil }
         return String(data: data, encoding: String.Encoding.utf8)
     }
 }
 
-public class JSONParser: Parser {
-    public func parse(data: Data?) -> Any? {
+open class JSONParser: Parser {
+    public init() {} // Without this, the parser cannot be initialized outside the lib
+    open func parse(data: Data?) -> Any? {
         guard let data = data else { return nil }
-        return try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
+        let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
+        return json as? [NSObject: AnyObject] ?? json as? [[NSObject: AnyObject]]
     }
 }

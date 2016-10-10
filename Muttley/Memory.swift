@@ -8,25 +8,24 @@
 
 import Foundation
 
-class Memory {
+class Memory: NSCache<NSString, NSData> {
     
-    static let shared = Memory()
-    let cache = NSCache<NSString, AnyObject>()
-    init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(cache.removeAllObjects), name: NSNotification.Name.UIApplicationDidReceiveMemoryWarning, object: nil)
+    override init() {
+        super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(removeAllObjects), name: NSNotification.Name.UIApplicationDidReceiveMemoryWarning, object: nil)
      }
     
-    subscript(key: String) -> AnyObject? {
+    subscript(key: String) -> NSData? {
         
         get {
-            return cache.object(forKey: key as NSString)
+            return object(forKey: key as NSString)
         }
         
         set(newValue) {
             if let newValue = newValue {
-                cache.setObject(newValue, forKey: key as NSString)
+                setObject(newValue, forKey: key as NSString)
             } else {
-                cache.removeObject(forKey: key as NSString)
+                removeObject(forKey: key as NSString)
             }
         }
     }

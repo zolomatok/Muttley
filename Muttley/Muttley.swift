@@ -8,77 +8,43 @@
 
 import Foundation
 
+
 open class Muttley<T> {
     
-    
-    func test() {
+    open static func fetch(request: Request<T>) {
+        
+        Dispatcher.fetch(url: request.url) { (data, error) in
+            
+            guard error == nil else {
+                request.completion(nil, error)
+                return
+            }
+            
 
-        let request = Request<UIImage>(url: "https://google.com") { (img, error) in
-            
-        }
-        Muttley<UIImage>(parser: ImageParser()).fetch(request: request)
-    }
-    
-    
-    var ongoing = [String: [Request<T>]]()
-    open let parser: Parser
-
-    
-    init(parser: Parser, configuration: URLSessionConfiguration? = nil) { self.parser = parser }
-    
-    
-    open func fetch(request: Request<T>) {
-        
-        // 1| Check the cache for the data
-        if let data = Memory.shared[request.url] as? T {
-            request.completion(data, nil)
-            return
-        }
-        
-        
-        // 2| Add the request to ongoing queue if exists for the URL
-        if ongoing.keys.contains(request.url) {
-            ongoing[request.url]!.append(request)
-            return
-        }
-        
-        
-        // 3| Create the URL
-        guard let url = URL(string:request.url) else {
-            request.completion(nil, .invalidURL)
-            return
-        }
-        
-        
-        // 4| Load
-        Loader.load(url: url, parser: parser) { (data, error) in
-            
-            // Completion
-            let data = data as? T
-            let requests = self.ongoing[request.url]
-            requests?.forEach({ (stored) in
-                stored.completion(data, error)
-            })
+            // Parse
+            if let parser = request.parser, let data = data {
+                if let result = parser.parse(data: data) as? T {
+                    request.completion(result, nil)
+                } else {
+                    request.completion(nil, .parseError("Expected \(T.self)"))
+                }
+                return
+            }
             
             
-            // Cache
-            Memory.shared[request.url] = data as AnyObject?
-            
-            
-            // Clear the queue
-            self.ongoing.removeValue(forKey: request.url)
+            // Data without parsing
+            request.completion(data as? T, error)
         }
     }
     
     
-    open func configure(maxCapacity: UInt64) {
+    open static func configure(maxCapacity: UInt64) {
         // capaccity
         // NSURLSessionConfiguration
     }
     
     
-    open func clean() {
-        // Clear the NSCache
-        Memory.shared.cache.removeAllObjects()
+    open static func clean() {
+        Dispatcher.clean()
     }
 }

@@ -14,6 +14,7 @@
 		F34B0A381DA911540003E8B1 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B0A371DA911540003E8B1 /* Memory.swift */; };
 		F34B0A3A1DA916310003E8B1 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B0A391DA916310003E8B1 /* Loader.swift */; };
 		F34B0A3C1DA926B90003E8B1 /* MuttleyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B0A3B1DA926B90003E8B1 /* MuttleyError.swift */; };
+		F3BDF1111DABA3AD00A5C562 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BDF1101DABA3AD00A5C562 /* Dispatcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		F34B0A371DA911540003E8B1 /* Memory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		F34B0A391DA916310003E8B1 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		F34B0A3B1DA926B90003E8B1 /* MuttleyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuttleyError.swift; sourceTree = "<group>"; };
+		F3BDF1101DABA3AD00A5C562 /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +62,9 @@
 			children = (
 				F34B0A291DA8E4920003E8B1 /* Muttley.h */,
 				F34B0A311DA8E8A30003E8B1 /* Muttley.swift */,
-				F34B0A391DA916310003E8B1 /* Loader.swift */,
+				F3BDF1101DABA3AD00A5C562 /* Dispatcher.swift */,
 				F34B0A331DA8EFC10003E8B1 /* Request.swift */,
+				F34B0A391DA916310003E8B1 /* Loader.swift */,
 				F34B0A351DA8FAC80003E8B1 /* Parser.swift */,
 				F34B0A371DA911540003E8B1 /* Memory.swift */,
 				F34B0A3B1DA926B90003E8B1 /* MuttleyError.swift */,
@@ -155,6 +158,7 @@
 				F34B0A321DA8E8A30003E8B1 /* Muttley.swift in Sources */,
 				F34B0A341DA8EFC10003E8B1 /* Request.swift in Sources */,
 				F34B0A361DA8FAC80003E8B1 /* Parser.swift in Sources */,
+				F3BDF1111DABA3AD00A5C562 /* Dispatcher.swift in Sources */,
 				F34B0A3A1DA916310003E8B1 /* Loader.swift in Sources */,
 				F34B0A3C1DA926B90003E8B1 /* MuttleyError.swift in Sources */,
 			);
