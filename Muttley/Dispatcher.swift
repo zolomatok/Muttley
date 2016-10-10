@@ -12,9 +12,13 @@ import Foundation
 class Dispatcher {
     
     static var queue = [String: [(Data?, MuttleyError?)->Void]]()
-    static var memory = Memory()
+    static var memory: Memory = {
+        let m = Memory()
+        m.totalCostLimit = Int.max
+        return m
+    }()
     
-    static func fetch(url: String, completion: @escaping (Data?, MuttleyError?)->Void) {
+    static func fetch(url: String, configuration: URLSessionConfiguration? = nil,  completion: @escaping (Data?, MuttleyError?)->Void) {
         
         // 1| Check the cache for the data
         if let data = memory[url] as? Data {
@@ -40,7 +44,7 @@ class Dispatcher {
         
         
         // 4| Load
-        Loader.load(url: weburl) { (data, error) in
+        Loader.load(url: weburl, configuration: configuration) { (data, error) in
             
             // Completion
             let completions = self.queue[url]

@@ -9,10 +9,11 @@
 import Foundation
 
 class Loader {
-    static func load(url: URL, completion: @escaping (Data?, MuttleyError?) -> Void) {
+    static func load(url: URL, configuration: URLSessionConfiguration? = nil, completion: @escaping (Data?, MuttleyError?) -> Void) {
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
+        let config = configuration ?? URLSessionConfiguration.default
+        URLSession(configuration: config).dataTask(with: url) { (data, response, error) in
+
             let response = response as? HTTPURLResponse
             var muttleyError: MuttleyError?
             

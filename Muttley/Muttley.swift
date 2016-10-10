@@ -9,9 +9,16 @@
 import Foundation
 
 
-open class Muttley<T> {
+open class Muttley {
     
-    open static func fetch(request: Request<T>) {
+    
+    open static var maxCapacity: Int {
+        get { return Dispatcher.memory.totalCostLimit }
+        set { Dispatcher.memory.totalCostLimit = newValue }
+    }
+    
+    
+    open static func fetch<T>(request: Request<T>) {
         
         Dispatcher.fetch(url: request.url) { (data, error) in
             
@@ -37,13 +44,7 @@ open class Muttley<T> {
         }
     }
     
-    
-    open static func configure(maxCapacity: UInt64) {
-        // capaccity
-        // NSURLSessionConfiguration
-    }
-    
-    
+
     open static func clean() {
         Dispatcher.clean()
     }
