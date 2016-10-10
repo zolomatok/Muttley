@@ -18,7 +18,7 @@ class Dispatcher {
         return m
     }()
     
-    static func fetch(url: String, configuration: URLSessionConfiguration? = nil,  completion: @escaping (Data?, MuttleyError?)->Void) {
+    static func fetch(url: String, configuration: URLSessionConfiguration? = nil, progressHandler: @escaping (Double)->Void = {_ in}, completion: @escaping (Data?, MuttleyError?)->Void) {
         
         // 1| Check the cache for the data
         if let data = memory[url] as? Data {
@@ -44,7 +44,7 @@ class Dispatcher {
         
         
         // 4| Load
-        Loader.load(url: weburl, configuration: configuration) { (data, error) in
+        Loader().load(url: weburl, configuration: configuration, progressHandler: progressHandler) { (data, error) in
             
             // Completion
             let completions = self.queue[url]

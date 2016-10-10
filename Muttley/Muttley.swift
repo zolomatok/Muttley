@@ -20,7 +20,7 @@ open class Muttley {
     
     open static func fetch<T>(request: Request<T>) {
         
-        Dispatcher.fetch(url: request.url) { (data, error) in
+        Dispatcher.fetch(url: request.url, configuration: request.configuration, progressHandler: request.progressHandler ?? {_ in}) { (data, error) in
             
             guard error == nil else {
                 request.completion(nil, error)
