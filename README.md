@@ -1,9 +1,9 @@
 ![Logo](/Muttley/logo.png?raw=true)
 
-![pod](https://cdn.rawgit.com/zolomatok/Muttley/master/pod.svg)
-![language](https://cdn.rawgit.com/zolomatok/Muttley/master/language.svg)
-![platform](https://cdn.rawgit.com/zolomatok/Muttley/master/platform.svg)
-![license](https://cdn.rawgit.com/zolomatok/Muttley/master/license.svg)
+![pod](https://cdn.rawgit.com/zolomatok/Muttley/master/Muttley/pod.svg)
+![language](https://cdn.rawgit.com/zolomatok/Muttley/master/Muttley/language.svg)
+![platform](https://cdn.rawgit.com/zolomatok/Muttley/master/Muttley/platform.svg)
+![license](https://cdn.rawgit.com/zolomatok/Muttley/master/Muttley/license.svg)
 
 Muttley is a lightweight networking library written for Swift.
 
@@ -14,6 +14,18 @@ Muttley is a lightweight networking library written for Swift.
 - [x] Cancellable requests
 - [x] Progress reporting
 - [x] Configurable via URLSessionConfiguration
+
+## Requirement
+- iOS 8.0+
+
+## Install
+**CocoaPods**
+
+```swift
+pod 'Muttley'
+```
+
+## How to use
 
 ###Fetching###
 ```swift
@@ -80,3 +92,8 @@ Muttley.fetch(request: request) { (data: Data?, error) in
 
 }
 ```
+
+
+## License
+Johnny is released under the MIT license. See LICENSE for details.
+
