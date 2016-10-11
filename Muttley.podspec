@@ -14,6 +14,4 @@ Pod::Spec.new do |s|
 
     s.ios.source_files = 'Muttley/*.swift'
     s.ios.frameworks = 'UIKit', 'Foundation'
-
-    s.dependency 'AsyncSwift'
 end
