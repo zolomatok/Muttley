@@ -54,19 +54,21 @@ class Dispatcher {
             memory[request.url] = data as NSData?
 
             
-            // Completion
-            let completions = self.queue[request.url]
-            completions?.forEach({ (completion) in
-                request.completion(data, error)
-            })
-            
-            
-            // Clear the queue
+            // Clear the queue but copy the dispatch requests before removing them
+            // The completions must be called last, because this request could be re-called in the a completion block before being removed
+            // Since the request would already be in the queue (albeit finished) the new request would just be added to the queue and would wait eternally for the first one to finish
+            let dispatchRequests = self.queue[request.url]
             self.queue.removeValue(forKey: request.url)
             
             
             // Remove the loader
             loaders = loaders.filter{ $0.url.absoluteString != request.url }
+
+            
+            // Completion
+            dispatchRequests?.forEach({ (dpRequest) in
+                dpRequest.completion(data, error)
+            })
         }
     }
     

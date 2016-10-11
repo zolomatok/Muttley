@@ -20,14 +20,6 @@ open class ImageParser: Parser {
     }
 }
 
-open class HTMLParser: Parser {
-    public init() {} // Without this, the parser cannot be initialized outside the lib
-    open func parse(data: Data?) -> Any? {
-        guard let data = data else { return nil }
-        return String(data: data, encoding: String.Encoding.utf8)
-    }
-}
-
 open class JSONParser: Parser {
     public init() {} // Without this, the parser cannot be initialized outside the lib
     open func parse(data: Data?) -> Any? {

@@ -67,6 +67,7 @@ class Memory: NSCache<NSString, NSData> {
                 }
                 subtract += map.size
                 indices.append(i)
+                removeObject(forKey: map.url as NSString)
             }
             indices.reversed().forEach{ accessFrequency.remove(at: $0) }
         }
