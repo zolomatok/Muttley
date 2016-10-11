@@ -30,7 +30,7 @@ pod 'Muttley'
 1. Clone the repo
 2. Build the project
 3. Drag & drop the framework into your project (tick 'copy' or set the path of 'Framework Search Paths' in your Build Settings)
-4. In your Target settings uner the 'General' tab add Muttley to the Embedded Binaries table, else the app will crash at runtime
+4. In your Target settings under the 'General' tab add Muttley to the 'Embedded Binaries' table
 5. Make sure to 'import Muttley' in your source
 
 
