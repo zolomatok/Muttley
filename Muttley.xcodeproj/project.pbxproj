@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F33BABA01DAC161100CCF691 /* MuttleyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33BAB9F1DAC161100CCF691 /* MuttleyTests.swift */; };
+		F33BABA21DAC161100CCF691 /* Muttley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F34B0A261DA8E4920003E8B1 /* Muttley.framework */; };
 		F34B0A2B1DA8E4920003E8B1 /* Muttley.h in Headers */ = {isa = PBXBuildFile; fileRef = F34B0A291DA8E4920003E8B1 /* Muttley.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F34B0A321DA8E8A30003E8B1 /* Muttley.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B0A311DA8E8A30003E8B1 /* Muttley.swift */; };
 		F34B0A341DA8EFC10003E8B1 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B0A331DA8EFC10003E8B1 /* Request.swift */; };
@@ -17,7 +19,20 @@
 		F3BDF1111DABA3AD00A5C562 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BDF1101DABA3AD00A5C562 /* Dispatcher.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F33BABA31DAC161100CCF691 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F34B0A1D1DA8E4920003E8B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F34B0A251DA8E4920003E8B1;
+			remoteInfo = Muttley;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		F33BAB9D1DAC161100CCF691 /* MuttleyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuttleyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F33BAB9F1DAC161100CCF691 /* MuttleyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuttleyTests.swift; sourceTree = "<group>"; };
+		F33BABA11DAC161100CCF691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F34B0A261DA8E4920003E8B1 /* Muttley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Muttley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34B0A291DA8E4920003E8B1 /* Muttley.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Muttley.h; sourceTree = "<group>"; };
 		F34B0A2A1DA8E4920003E8B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,6 +46,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F33BAB9A1DAC161100CCF691 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F33BABA21DAC161100CCF691 /* Muttley.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F34B0A221DA8E4920003E8B1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,10 +64,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F33BAB9E1DAC161100CCF691 /* MuttleyTests */ = {
+			isa = PBXGroup;
+			children = (
+				F33BAB9F1DAC161100CCF691 /* MuttleyTests.swift */,
+				F33BABA11DAC161100CCF691 /* Info.plist */,
+			);
+			path = MuttleyTests;
+			sourceTree = "<group>";
+		};
 		F34B0A1C1DA8E4920003E8B1 = {
 			isa = PBXGroup;
 			children = (
 				F34B0A281DA8E4920003E8B1 /* Muttley */,
+				F33BAB9E1DAC161100CCF691 /* MuttleyTests */,
 				F34B0A271DA8E4920003E8B1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				F34B0A261DA8E4920003E8B1 /* Muttley.framework */,
+				F33BAB9D1DAC161100CCF691 /* MuttleyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,6 +121,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		F33BAB9C1DAC161100CCF691 /* MuttleyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F33BABA71DAC161100CCF691 /* Build configuration list for PBXNativeTarget "MuttleyTests" */;
+			buildPhases = (
+				F33BAB991DAC161100CCF691 /* Sources */,
+				F33BAB9A1DAC161100CCF691 /* Frameworks */,
+				F33BAB9B1DAC161100CCF691 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F33BABA41DAC161100CCF691 /* PBXTargetDependency */,
+			);
+			name = MuttleyTests;
+			productName = MuttleyTests;
+			productReference = F33BAB9D1DAC161100CCF691 /* MuttleyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F34B0A251DA8E4920003E8B1 /* Muttley */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F34B0A2E1DA8E4920003E8B1 /* Build configuration list for PBXNativeTarget "Muttley" */;
@@ -111,9 +163,15 @@
 		F34B0A1D1DA8E4920003E8B1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Zolo;
 				TargetAttributes = {
+					F33BAB9C1DAC161100CCF691 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 83655RR9FZ;
+						ProvisioningStyle = Automatic;
+					};
 					F34B0A251DA8E4920003E8B1 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 83655RR9FZ;
@@ -135,11 +193,19 @@
 			projectRoot = "";
 			targets = (
 				F34B0A251DA8E4920003E8B1 /* Muttley */,
+				F33BAB9C1DAC161100CCF691 /* MuttleyTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F33BAB9B1DAC161100CCF691 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F34B0A241DA8E4920003E8B1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -150,6 +216,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F33BAB991DAC161100CCF691 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F33BABA01DAC161100CCF691 /* MuttleyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F34B0A211DA8E4920003E8B1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -166,7 +240,39 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F33BABA41DAC161100CCF691 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F34B0A251DA8E4920003E8B1 /* Muttley */;
+			targetProxy = F33BABA31DAC161100CCF691 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		F33BABA51DAC161100CCF691 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 83655RR9FZ;
+				INFOPLIST_FILE = MuttleyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Zolo.MuttleyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F33BABA61DAC161100CCF691 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 83655RR9FZ;
+				INFOPLIST_FILE = MuttleyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Zolo.MuttleyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		F34B0A2C1DA8E4920003E8B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -312,6 +418,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F33BABA71DAC161100CCF691 /* Build configuration list for PBXNativeTarget "MuttleyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F33BABA51DAC161100CCF691 /* Debug */,
+				F33BABA61DAC161100CCF691 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		F34B0A201DA8E4920003E8B1 /* Build configuration list for PBXProject "Muttley" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

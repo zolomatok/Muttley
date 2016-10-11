@@ -8,22 +8,44 @@
 
 import Foundation
 
-class Loader: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDataDelegate {
+class Loader: NSObject {
     
+    let url: URL
+    var session: URLSession!
     var dataToDownload = Data()
     var size: Int64 = 0
     var progressHandler: ((Double)->Void)?
     var completion: ((Data?, MuttleyError?) -> Void)!
     
-    func load(url: URL, configuration: URLSessionConfiguration? = nil, progressHandler: @escaping (Double) -> Void = {_ in}, completion: @escaping (Data?, MuttleyError?) -> Void) {
+    init(url: URL) { self.url = url }
     
+    
+    func load(configuration: URLSessionConfiguration? = nil, progressHandler: @escaping (Double) -> Void = {_ in}, completion: @escaping (Data?, MuttleyError?) -> Void) {
+    
+        // Handlers
         self.progressHandler = progressHandler
         self.completion = completion
     
-        let session = URLSession(configuration: configuration ?? URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.main)
-        let task = session.dataTask(with: url)
-        task.resume()
+        
+        // Session
+        session = URLSession(configuration: configuration ?? URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.main)
+        
+        
+        // Task
+        session.dataTask(with: url).resume()
     }
+    
+    
+    func cancel() {
+        session.getTasksWithCompletionHandler { (dataTasks, _, _) in
+            dataTasks.forEach{ $0.cancel() }
+        }
+    }
+}
+
+
+
+extension Loader: URLSessionDelegate, URLSessionTaskDelegate, URLSessionDataDelegate {
     
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
@@ -31,10 +53,12 @@ class Loader: NSObject, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDa
         completionHandler(.allow)
     }
     
+    
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         dataToDownload.append(data)
         self.progressHandler?(Double(dataToDownload.count)/Double(size))
     }
+    
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         

@@ -9,26 +9,33 @@
 import Foundation
 
 /// Defines the url for a resource, along with an optional parsing method, configuration, progress and completion handlers
-open class Request<T> {
+public class Request {
     
-    public typealias Completion = (T?, MuttleyError?)->Void
     public typealias ProgressHandler = (Double)->Void
     
-    open let url: String
-    open var parser: Parser?
-    open var configuration: URLSessionConfiguration?
-    open let progressHandler: ProgressHandler?
-    open let completion: Completion
+    public let uid: UInt32
+    public let url: String
+    public var parser: Parser?
+    public var configuration: URLSessionConfiguration?
+    public let progressHandler: ProgressHandler?
     
-    public init(url: String, parser: Parser? = nil, configuration: URLSessionConfiguration? = nil, progressHandler: ProgressHandler? = nil, completion: @escaping Completion) {
+    public init(uid: UInt32 = arc4random_uniform(UInt32.max), url: String, parser: Parser? = nil, configuration: URLSessionConfiguration? = nil, progressHandler: ProgressHandler? = nil) {
         
+        self.uid = uid
         self.url = url
         self.parser = parser
         self.configuration = configuration
-        self.progressHandler = progressHandler
+        self.progressHandler = progressHandler        
+    }
+}
+
+
+/// Request with completion handler
+class DispatchRequest: Request {
+    let completion: (Data?, MuttleyError?)->Void
+    
+    init(request: Request, completion: @escaping (Data?, MuttleyError?)->Void) {
         self.completion = completion
-        
-        // !! Despite the warning, Request<T> is not unrelated to Request<Data> and the cast does not always fail. This warning is a false positive, but there is no way to suppress a specific warning in Swift 3.
-        assert(self is Request<Data> || parser != nil, "[Muttley] A 'Parser' is needed as input parameter for the initializer of 'Request' if the generic type is not Data")
+        super.init(uid: request.uid, url: request.url, parser: request.parser, configuration: request.configuration, progressHandler: request.progressHandler)
     }
 }

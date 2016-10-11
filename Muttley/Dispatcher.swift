@@ -11,7 +11,8 @@ import Foundation
 
 class Dispatcher {
     
-    static var queue = [String: [(Data?, MuttleyError?)->Void]]()
+    fileprivate static var queue = [String: [DispatchRequest]]()
+    fileprivate static var loaders = [Loader]()
     static var memory: Memory = {
         let m = Memory()
         m.totalCostLimit = Int.max
@@ -19,47 +20,81 @@ class Dispatcher {
     }()
     
     
-    static func fetch(url: String, configuration: URLSessionConfiguration? = nil, progressHandler: @escaping (Double)->Void = {_ in}, completion: @escaping (Data?, MuttleyError?)->Void) {
+    static func fetch(request: DispatchRequest) {
         
         // 1| Check the cache for the data
-        if let data = memory[url] as? Data {
-            completion(data, nil)
+        if let data = memory[request.url] as? Data {
+            request.completion(data, nil)
             return
         }
         
         
         // 2| Add the completion to the queue
-        if queue.keys.contains(url) {
-            queue[url]!.append(completion)
+        if queue.keys.contains(request.url) {
+            queue[request.url]!.append(request)
             return
         } else {
-            queue[url] = [completion]
+            queue[request.url] = [request]
         }
         
         
         // 3| Create the URL
-        guard let weburl = URL(string: url) else {
-            completion(nil, .invalidURL)
+        guard let weburl = URL(string: request.url) else {
+            request.completion(nil, .invalidURL)
             return
         }
         
         
         // 4| Load
-        Loader().load(url: weburl, configuration: configuration, progressHandler: progressHandler) { (data, error) in
+        let loader = Loader(url: weburl)
+        loaders.append(loader)
+        loader.load(configuration: request.configuration, progressHandler: request.progressHandler ?? {_ in}) { (data, error) in
+            
+            // Cache
+            memory[request.url] = data as NSData?
+
             
             // Completion
-            let completions = self.queue[url]
+            let completions = self.queue[request.url]
             completions?.forEach({ (completion) in
-                completion(data, error)
+                request.completion(data, error)
             })
             
             
-            // Cache
-            memory[url] = data as NSData?
-            
-            
             // Clear the queue
-            self.queue.removeValue(forKey: url)
+            self.queue.removeValue(forKey: request.url)
+            
+            
+            // Remove the loader
+            loaders = loaders.filter{ $0.url.absoluteString != request.url }
+        }
+    }
+    
+    
+    static func cancel(request: Request) {
+        if let items = queue[request.url],
+            
+            // Index
+            let index = items.index(where: { $0.uid == request.uid }) {
+        
+            // Remove the completion
+            queue[request.url]?.remove(at: index)
+            
+            // Remove the key if no completions are left
+            if queue[request.url]!.count == 0 {
+                queue.removeValue(forKey: request.url)
+                
+                // Cancel and remove the loaders associated with this url
+                loaders = loaders.filter({ loader in
+                
+                    if loader.url.absoluteString != request.url {
+                        return true
+                    } else {
+                        loader.cancel()
+                        return false
+                    }
+                })
+            }
         }
     }
     

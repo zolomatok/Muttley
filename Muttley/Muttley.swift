@@ -18,33 +18,44 @@ open class Muttley {
         set { Dispatcher.memory.totalCostLimit = newValue }
     }
     
-    
 
     /// Download the data from the request's url
-    open static func fetch<T>(request: Request<T>) {
+    open static func fetch<T>(request: Request, completion: @escaping (T?, MuttleyError?)->Void) {
         
-        Dispatcher.fetch(url: request.url, configuration: request.configuration, progressHandler: request.progressHandler ?? {_ in}) { (data, error) in
+        
+        // Handle the completion
+        let dispatchRequest = DispatchRequest(request: request) { (data, error) in
             
             guard error == nil else {
-                request.completion(nil, error)
+                completion(nil, error)
                 return
             }
             
-
+            
             // Parse
             if let parser = request.parser, let data = data {
                 if let result = parser.parse(data: data) as? T {
-                    request.completion(result, nil)
+                    completion(result, nil)
                 } else {
-                    request.completion(nil, .parseError("Expected \(T.self)"))
+                    completion(nil, .parseError("Expected \(T.self)"))
                 }
                 return
             }
             
             
             // Data without parsing
-            request.completion(data as? T, error)
+            completion(data as? T, error)
         }
+        
+        
+        // Run the request
+        Dispatcher.fetch(request: dispatchRequest)
+    }
+    
+    
+    /// Cancels a specific request
+    open static func cancel(request: Request) {
+        Dispatcher.cancel(request: request)
     }
     
 
