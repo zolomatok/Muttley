@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		F33BABA01DAC161100CCF691 /* MuttleyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33BAB9F1DAC161100CCF691 /* MuttleyTests.swift */; };
 		F33BABA21DAC161100CCF691 /* Muttley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F34B0A261DA8E4920003E8B1 /* Muttley.framework */; };
-		F33BABAF1DACFBEC00CCF691 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F33BABAE1DACFBEC00CCF691 /* README.md */; };
 		F33BABB11DAD018300CCF691 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F33BABB01DAD018300CCF691 /* logo.png */; };
 		F33BABB61DAD01A800CCF691 /* language.svg in Resources */ = {isa = PBXBuildFile; fileRef = F33BABB21DAD01A800CCF691 /* language.svg */; };
 		F33BABB71DAD01A800CCF691 /* license.svg in Resources */ = {isa = PBXBuildFile; fileRef = F33BABB31DAD01A800CCF691 /* license.svg */; };
@@ -273,7 +272,6 @@
 				F34B0A361DA8FAC80003E8B1 /* Parser.swift in Sources */,
 				F3BDF1111DABA3AD00A5C562 /* Dispatcher.swift in Sources */,
 				F34B0A3A1DA916310003E8B1 /* Loader.swift in Sources */,
-				F33BABAF1DACFBEC00CCF691 /* README.md in Sources */,
 				F34B0A3C1DA926B90003E8B1 /* MuttleyError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
