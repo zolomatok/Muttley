@@ -77,10 +77,15 @@ class Dispatcher {
             // Index
             let index = items.index(where: { $0.uid == request.uid }) {
         
-            // Remove the completion
+            // Call the completion
+            if let dispatchRequests = queue[request.url] {
+                dispatchRequests[index].completion(nil, .cancelled)
+            }
+            
+            // Remove the dispatch request
             queue[request.url]?.remove(at: index)
             
-            // Remove the key if no completions are left
+            // Remove the key if no requests are left for the url
             if queue[request.url]!.count == 0 {
                 queue.removeValue(forKey: request.url)
                 

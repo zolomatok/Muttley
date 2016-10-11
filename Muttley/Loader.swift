@@ -62,6 +62,7 @@ extension Loader: URLSessionDelegate, URLSessionTaskDelegate, URLSessionDataDele
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         
+        let error = error as NSError?
         let response = task.response as? HTTPURLResponse
         var muttleyError: MuttleyError?
         
@@ -76,7 +77,8 @@ extension Loader: URLSessionDelegate, URLSessionTaskDelegate, URLSessionDataDele
         }
         
         
-        // Completion
-        DispatchQueue.main.async { self.completion(self.dataToDownload, muttleyError) }
+        // Completion 
+        // There can be partial data if it was a long task that was cancelled, so that should not be returned
+        DispatchQueue.main.async { self.completion(muttleyError == nil ? self.dataToDownload : nil, muttleyError) }
     }
 }

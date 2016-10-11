@@ -9,9 +9,9 @@
 import Foundation
 
 public enum MuttleyError {
-    
     case invalidURL
     case timeOut
     case networkError(statusCode: Int, localizedDescription: String)
+    case cancelled
     case parseError(String)
 }

@@ -97,8 +97,8 @@
 				F34B0A291DA8E4920003E8B1 /* Muttley.h */,
 				F34B0A311DA8E8A30003E8B1 /* Muttley.swift */,
 				F3BDF1101DABA3AD00A5C562 /* Dispatcher.swift */,
-				F34B0A331DA8EFC10003E8B1 /* Request.swift */,
 				F34B0A391DA916310003E8B1 /* Loader.swift */,
+				F34B0A331DA8EFC10003E8B1 /* Request.swift */,
 				F34B0A351DA8FAC80003E8B1 /* Parser.swift */,
 				F34B0A371DA911540003E8B1 /* Memory.swift */,
 				F34B0A3B1DA926B90003E8B1 /* MuttleyError.swift */,
@@ -425,6 +425,7 @@
 				F33BABA61DAC161100CCF691 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F34B0A201DA8E4920003E8B1 /* Build configuration list for PBXProject "Muttley" */ = {
 			isa = XCConfigurationList;
