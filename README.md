@@ -35,9 +35,9 @@ Muttley.fetch(request: request) { [weak self] (data: Data?, error) in
 }
 ```
 
-All but the `url` parameter can be omitted from the initializer.
+All but the `url` parameter can be omitted from the `Request` initializer.
 
-**Note the `weak self`**
+*Note the `weak self` in the capture list.*
 
 
 ###Parsing###
@@ -95,5 +95,5 @@ Muttley.fetch(request: request) { (data: Data?, error) in
 
 
 ## License
-Johnny is released under the MIT license. See LICENSE for details.
+Muttley is released under the MIT license. See LICENSE for details.
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="342px" height="20px" viewBox="0 0 342 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="110px" height="20px" viewBox="0 0 110 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
     <title>platform</title>
     <desc>Created with Sketch.</desc>
@@ -20,8 +20,8 @@
                     <g id="Rectangle-path"></g>
                     <g id="Group" mask="url(#mask-2)">
                         <polygon id="Shape" fill="#555555" points="0 0 57 0 57 20 0 20"></polygon>
-                        <polygon id="Shape" fill="#A754D9" points="57 0 200 0 200 20 57 20"></polygon>
-                        <polygon id="Shape" fill="url(#linearGradient-3)" points="0 0 200 0 200 20 0 20"></polygon>
+                        <polygon id="Shape" fill="#A754D9" points="57 0 110 0 110 20 57 20"></polygon>
+                        <polygon id="Shape" fill="url(#linearGradient-3)" points="0 0 110 0 110 20 0 20"></polygon>
                     </g>
                 </g>
                 <g transform="translate(5.000000, 3.000000)" font-family="Verdana" font-size="11" font-weight="normal">
