@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		F33BABA01DAC161100CCF691 /* MuttleyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33BAB9F1DAC161100CCF691 /* MuttleyTests.swift */; };
 		F33BABA21DAC161100CCF691 /* Muttley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F34B0A261DA8E4920003E8B1 /* Muttley.framework */; };
+		F33BABAF1DACFBEC00CCF691 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F33BABAE1DACFBEC00CCF691 /* README.md */; };
+		F33BABB11DAD018300CCF691 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F33BABB01DAD018300CCF691 /* logo.png */; };
+		F33BABB61DAD01A800CCF691 /* language.svg in Resources */ = {isa = PBXBuildFile; fileRef = F33BABB21DAD01A800CCF691 /* language.svg */; };
+		F33BABB71DAD01A800CCF691 /* license.svg in Resources */ = {isa = PBXBuildFile; fileRef = F33BABB31DAD01A800CCF691 /* license.svg */; };
+		F33BABB81DAD01A800CCF691 /* platform.svg in Resources */ = {isa = PBXBuildFile; fileRef = F33BABB41DAD01A800CCF691 /* platform.svg */; };
+		F33BABB91DAD01A800CCF691 /* pod.svg in Resources */ = {isa = PBXBuildFile; fileRef = F33BABB51DAD01A800CCF691 /* pod.svg */; };
+		F33BABBE1DAD0A2800CCF691 /* Muttley.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F33BABBD1DAD0A2800CCF691 /* Muttley.podspec */; };
 		F34B0A2B1DA8E4920003E8B1 /* Muttley.h in Headers */ = {isa = PBXBuildFile; fileRef = F34B0A291DA8E4920003E8B1 /* Muttley.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F34B0A321DA8E8A30003E8B1 /* Muttley.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B0A311DA8E8A30003E8B1 /* Muttley.swift */; };
 		F34B0A341DA8EFC10003E8B1 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B0A331DA8EFC10003E8B1 /* Request.swift */; };
@@ -33,6 +40,13 @@
 		F33BAB9D1DAC161100CCF691 /* MuttleyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuttleyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33BAB9F1DAC161100CCF691 /* MuttleyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuttleyTests.swift; sourceTree = "<group>"; };
 		F33BABA11DAC161100CCF691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F33BABAE1DACFBEC00CCF691 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		F33BABB01DAD018300CCF691 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		F33BABB21DAD01A800CCF691 /* language.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = language.svg; sourceTree = "<group>"; };
+		F33BABB31DAD01A800CCF691 /* license.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = license.svg; sourceTree = "<group>"; };
+		F33BABB41DAD01A800CCF691 /* platform.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = platform.svg; sourceTree = "<group>"; };
+		F33BABB51DAD01A800CCF691 /* pod.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pod.svg; sourceTree = "<group>"; };
+		F33BABBD1DAD0A2800CCF691 /* Muttley.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Muttley.podspec; sourceTree = "<group>"; };
 		F34B0A261DA8E4920003E8B1 /* Muttley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Muttley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34B0A291DA8E4920003E8B1 /* Muttley.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Muttley.h; sourceTree = "<group>"; };
 		F34B0A2A1DA8E4920003E8B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,6 +87,21 @@
 			path = MuttleyTests;
 			sourceTree = "<group>";
 		};
+		F33BABBA1DAD026500CCF691 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				F34B0A2A1DA8E4920003E8B1 /* Info.plist */,
+				F33BABBD1DAD0A2800CCF691 /* Muttley.podspec */,
+				F33BABAE1DACFBEC00CCF691 /* README.md */,
+				F33BABB01DAD018300CCF691 /* logo.png */,
+				F33BABB21DAD01A800CCF691 /* language.svg */,
+				F33BABB31DAD01A800CCF691 /* license.svg */,
+				F33BABB41DAD01A800CCF691 /* platform.svg */,
+				F33BABB51DAD01A800CCF691 /* pod.svg */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
 		F34B0A1C1DA8E4920003E8B1 = {
 			isa = PBXGroup;
 			children = (
@@ -102,7 +131,7 @@
 				F34B0A351DA8FAC80003E8B1 /* Parser.swift */,
 				F34B0A371DA911540003E8B1 /* Memory.swift */,
 				F34B0A3B1DA926B90003E8B1 /* MuttleyError.swift */,
-				F34B0A2A1DA8E4920003E8B1 /* Info.plist */,
+				F33BABBA1DAD026500CCF691 /* resources */,
 			);
 			path = Muttley;
 			sourceTree = "<group>";
@@ -210,6 +239,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F33BABB71DAD01A800CCF691 /* license.svg in Resources */,
+				F33BABB61DAD01A800CCF691 /* language.svg in Resources */,
+				F33BABB11DAD018300CCF691 /* logo.png in Resources */,
+				F33BABBE1DAD0A2800CCF691 /* Muttley.podspec in Resources */,
+				F33BABB91DAD01A800CCF691 /* pod.svg in Resources */,
+				F33BABB81DAD01A800CCF691 /* platform.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +269,7 @@
 				F34B0A361DA8FAC80003E8B1 /* Parser.swift in Sources */,
 				F3BDF1111DABA3AD00A5C562 /* Dispatcher.swift in Sources */,
 				F34B0A3A1DA916310003E8B1 /* Loader.swift in Sources */,
+				F33BABAF1DACFBEC00CCF691 /* README.md in Sources */,
 				F34B0A3C1DA926B90003E8B1 /* MuttleyError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
