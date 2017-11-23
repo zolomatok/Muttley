@@ -36,7 +36,7 @@ pod 'Muttley'
 
 ## How to use
 
-###Fetching###
+### Fetching ###
 ```swift
 let request = Request(url: someURL)
 Muttley.fetch(request: request) { [weak self] (data: Data?, error) in
@@ -49,7 +49,7 @@ All but the `url` parameter can be omitted from the `Request` initializer.
 *Note the `weak self` in the capture list.*
 
 
-###Parsing###
+### Parsing ###
 
 ```swift
 let request = Request(url: someURL, parser: ImageParser())
@@ -69,7 +69,7 @@ public protocol Parser {
 A simple image and JSON parser is provided by the Muttley.
 
 
-###Progress reporting###
+### Progress reporting ###
 
 ```swift
 let request = Request(url: someURL) { [weak self] (progress) in
@@ -81,7 +81,7 @@ Muttley.fetch(request: request) { (image: UIImage?, error) in
 ```
 
 
-###Configuration###
+### Configuration ###
 
 We can set the cache size limit of Muttley. Default is `Int.max`.
 
